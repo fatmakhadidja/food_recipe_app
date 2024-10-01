@@ -1,16 +1,17 @@
-# food_recipe_app
+# Food app
 
 Mobile application that allows the user to check new recipes and add his own recipes
 
-## Getting Started
+ ## The launching page :
 
-This project is a starting point for a Flutter application.
+![Image pour github 1](https://github.com/user-attachments/assets/f678294f-61b2-4495-878a-5e0f4a1be78b)
 
-A few resources to get you started if this is your first Flutter project:
+## The home page 
+(incomplete)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Image pour github 2](https://github.com/user-attachments/assets/d0c6aded-304e-40b6-acc6-dc2e58a78fd7)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## The detailed recipe page
+(incomplete)
+
+![Image pour github 3](https://github.com/user-attachments/assets/628b8bc8-30a1-4368-affb-d6f4aa700b95)
