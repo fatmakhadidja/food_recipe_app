@@ -9,8 +9,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+
   @override
   Widget build(BuildContext context) {
+
+
+    final Recipe recipe1 = Recipe(title: 'Sushi', imagePath: 'TrendingRecipe1.png',rating: 4.5,creatorName: 'Nikki kardashian',creatorImagePath: 'TrendingRecipeOwner1.jpg');
+    final Recipe recipe2 = Recipe(title: 'French toast', imagePath: 'TrendingRecipe2.png',rating: 4.0,creatorName: 'Khadidja Djerfi',creatorImagePath: 'TrendingRecipeOwner1.jpg');
+    final Recipe recipe3 = Recipe(title: 'Sandwish', imagePath: 'TrendingRecipe3.png',rating: 3.5,creatorName: 'Oussama Hammoudi',creatorImagePath: 'TrendingRecipeOwner1.jpg');
+
+    List<Recipe> RecipesList = [recipe1,recipe2,recipe3];
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -45,32 +55,18 @@ class _HomeState extends State<Home> {
                   const SizedBox(height: 20),
                   const TrendingSection(),
                   const SizedBox(height: 10),
-                  const SingleChildScrollView(
+                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: [
-                        TrendingRecipe(
-                          imagePath: 'TrendingRecipe1.png',
-                          recipeName: 'Sushi',
-                          recipeOwner: 'Niki Samantha',
-                          recipeOwnerPic: 'TrendingRecipeOwner1.jpg',
-                          rating: 4.5,
-                        ),
-                        TrendingRecipe(
-                          imagePath: 'TrendingRecipe2.png',
-                          recipeName: 'French toast',
-                          recipeOwner: 'Jerry Chloas',
-                          recipeOwnerPic: 'TrendingRecipeOwner1.jpg',
-                          rating: 4.8,
-                        ),
-                        TrendingRecipe(
-                          imagePath: 'TrendingRecipe3.png',
-                          recipeName: 'Spaghetti',
-                          recipeOwner: 'Kim Kouka',
-                          recipeOwnerPic: 'TrendingRecipeOwner1.jpg',
-                          rating: 4.0,
-                        ),
-                      ],
+                      children: RecipesList.map((recipe) {
+                        return TrendingRecipe(
+                          imagePath: recipe.imagePath,
+                          recipeName: recipe.title,
+                          recipeOwner: recipe.creatorName,
+                          recipeOwnerPic: recipe.creatorImagePath,
+                          rating: recipe.rating,
+                        );
+                      }).toList(),
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -249,9 +245,10 @@ class TrendingRecipe extends StatelessWidget {
               GestureDetector(
                 onTap: (){
                   Navigator.pushNamed(context, '/Recipedetails', arguments: {
-                    'title' : String,
-                    'imagePath' : String,
-                    'ceatorName' : String,
+                    'title' : 'How to make $recipeName at home',
+                    'imagePath' : 'assets/$imagePath',
+                    'creatorName' : '  $recipeOwner',
+                    'rating' : '$rating',
                   });
                 },
                 child: Container(
@@ -436,4 +433,22 @@ class PopularCreator extends StatelessWidget {
       ),
     );
   }
+}
+
+
+class Recipe{
+  final String title;
+  final String imagePath;
+  final double rating;
+  final String creatorName;
+  final String creatorImagePath;
+
+  Recipe({
+    required this.title,
+    required this.imagePath,
+    required this.rating,
+    required this.creatorName,
+    required this.creatorImagePath
+
+  });
 }

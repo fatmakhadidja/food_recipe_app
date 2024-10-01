@@ -11,6 +11,7 @@ class Recipedetails extends StatelessWidget {
     if (args!=null){
       data= args;
     }
+
     return Scaffold(
           body : SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -42,10 +43,10 @@ class Recipedetails extends StatelessWidget {
 
                   SizedBox(
                     height: 75,
-                    width: 244,
+                    width: 400,
                     child: Text(
-                      $data['title'],
-                      style : TextStyle(
+                       data['title'],
+                       style : TextStyle(
                         color : Color(0xFF303030),
                         fontWeight: FontWeight.w600,
                         fontSize: 24
@@ -59,7 +60,7 @@ class Recipedetails extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                        image: AssetImage('assets/TrendingRecipe1.png'),
+                        image: AssetImage(data['imagePath']),
                         fit: BoxFit.cover
                       ),
                     ),
@@ -73,7 +74,7 @@ class Recipedetails extends StatelessWidget {
                         size: 20,
                       ),
                       Text(
-                        '4.5 ',
+                        '${data['rating'].toString()} ',
                         style : TextStyle(
                             color: Colors.black,
                             fontSize: 14,
@@ -108,7 +109,7 @@ class Recipedetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '  Roberta Anne',
+                             data['creatorName'],
                             style: const TextStyle(
                               color: Color(0xFF303030),
                               fontSize: 14,
