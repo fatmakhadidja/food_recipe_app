@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,8 +11,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -105,8 +105,8 @@ class _HomeState extends State<Home> {
             ),
           ),
 
-      ),
-    );
+      );
+
   }
 }
 
@@ -246,15 +246,24 @@ class TrendingRecipe extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
-                height: 220,
-                width: 280,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/$imagePath'),
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, '/Recipedetails', arguments: {
+                    'title' : String,
+                    'imagePath' : String,
+                    'ceatorName' : String,
+                  });
+                },
+                child: Container(
+                  height: 220,
+                  width: 280,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/$imagePath'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
               Positioned(

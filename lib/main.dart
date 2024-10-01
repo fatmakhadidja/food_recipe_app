@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/recipeDetails.dart';
 import 'Home.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       home: Launch(), // Launch screen as the home page
       routes: {
         '/home': (context) => Home(), // Home screen
+        '/Recipedetails': (context) => Recipedetails(),
       },
     );
   }
